@@ -9,13 +9,25 @@ public class Application {
     public static void main(String[] args) {
 
         if(args.length != 1) {
-            System.out.println("Dever ser informado somente o caminho completo para o arquivo com a topologia das filas.");
+            help();
             return;
         }
+        switch (args[0]) {
+            case "help":
+                help();
+                break;
+            case "example":
+                Printer.createExampleFile();
+                break;
+            default:
+                start(args[0]);
+        }
+    }
 
+    private static void start(String arg) {
         Gson gson = new Gson();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(args[0]));
+            BufferedReader br = new BufferedReader(new FileReader(arg));
             Topology topology = gson.fromJson(br, Topology.class);
             Simulator simulator = new Simulator();
             simulator.runSimulation(topology);
@@ -23,7 +35,16 @@ public class Application {
             System.err.println(ex.getMessage());
             ex.printStackTrace();
         }
-
     }
 
+    private static void help() {
+        System.out.println("Guia do usuario");
+        System.out.println("\nExecutar simulacao:");
+        System.out.println("\tjava -jar queue-simulator C:\\example.json");
+        System.out.println("\nBaixar modelo de exemplo:");
+        System.out.println("\tjava -jar queue-simulator example");
+        System.out.println("\nAjuda:");
+        System.out.println("\tjava -jar queue-simulator help");
+        System.out.println("\nOBS: Se for enviada uma lista randoms manual nao sera feita a geracao dos numeros automaticamente utilizando utlizando o metodo de congruencia linear");
+    }
 }

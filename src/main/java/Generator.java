@@ -11,8 +11,7 @@ public class Generator {
             this.randoms = topology.getRandomNumbers();
         else
             this.randoms = calculateCongruentLinear(1664525.0, x, 4294967295.0, 1013904223, topology.getRandomNumbersPerSeed());
-        System.out.println("Números gerados: " + this.randoms.size());
-        print();
+        Printer.print(this.randoms, "randoms.txt");
     }
 
     public List<Double> getRandoms() {
@@ -35,16 +34,6 @@ public class Generator {
         double x = (end - start) *  randoms.get(0) + start;
         randoms.remove(randoms.get(0));
         return x;
-    }
-
-    private void print() throws IOException {
-        OutputStream os = new FileOutputStream("randoms.txt");
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
-        for (double n : this.randoms) {
-            bw.write("- " + n + "\n");
-        }
-        bw.close();
     }
 
 }

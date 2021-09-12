@@ -25,6 +25,7 @@ public class Simulator {
             System.out.println(i + "\t\t" + Formatter.format(state, 4) + "\t\t\t" + Formatter.format(queueManager.calculateProbability(state), 2) + "%");
         }
         System.out.println("\nTotal de clientes perdidos: " + queueManager.lostClients);
+        System.out.println("\nTempo total de execucao: " + queue.getStates().stream().mapToDouble(x -> x).sum());
         System.out.println("=============================================================");
     }
 
