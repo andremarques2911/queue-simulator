@@ -40,11 +40,11 @@ public class Application {
     private static void help() {
         System.out.println("Guia do usuario");
         System.out.println("\nExecutar simulacao:");
-        System.out.println("\tjava -jar queue-simulator C:\\example.json");
+        System.out.println("\tjava -jar queue-simulator.jar C:\\example.json");
         System.out.println("\nBaixar modelo de exemplo:");
-        System.out.println("\tjava -jar queue-simulator example");
+        System.out.println("\tjava -jar queue-simulator.jar example");
         System.out.println("\nAjuda:");
-        System.out.println("\tjava -jar queue-simulator help");
+        System.out.println("\tjava -jar queue-simulator.jar help");
         System.out.println("\nOBS: Se for enviada uma lista randoms manual nao sera feita a geracao dos numeros automaticamente utilizando utlizando o metodo de congruencia linear");
     }
 }
