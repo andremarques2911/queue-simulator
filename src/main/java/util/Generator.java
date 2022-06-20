@@ -1,9 +1,12 @@
-import java.io.*;
+package util;
+
+import model.Topology;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Generator {
-
     private List<Double> randoms;
 
     public Generator(int x, Topology topology) throws IOException {
@@ -27,13 +30,20 @@ public class Generator {
             randoms.add(xi/m);
             previous = xi;
         }
+
         return randoms;
+    }
+
+    public double getNextDouble() {
+        double x = randoms.get(0);
+        randoms.remove(0);
+        return x;
     }
 
     public double getNextDoubleBetween(double start, double end) {
         double x = (end - start) *  randoms.get(0) + start;
         randoms.remove(randoms.get(0));
+
         return x;
     }
-
 }

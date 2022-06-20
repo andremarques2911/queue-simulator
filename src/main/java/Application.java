@@ -1,17 +1,18 @@
 import com.google.gson.Gson;
+import model.Topology;
+import util.Printer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class Application {
-
     public static void main(String[] args) {
-
-        if(args.length != 1) {
+        if (args.length != 1) {
             help();
             return;
         }
+
         switch (args[0]) {
             case "help":
                 help();

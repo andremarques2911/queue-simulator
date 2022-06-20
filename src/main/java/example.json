@@ -1,0 +1,58 @@
+{
+	"seeds": [
+		1
+	],
+	"arrivals": [
+		{
+			"queueName": "Q1",
+			"value": 3.0
+		}
+	],
+	"queues": [
+		{
+			"name": "Q1",
+			"servers": 2,
+			"capacity": 4,
+			"minArrival": 2.0,
+			"maxArrival": 3.0,
+			"minService": 4.0,
+			"maxService": 7.0,
+			"networks": [
+				{
+					"target": "Q2",
+					"probability": 0.7
+				}
+			]
+		},
+		{
+			"name": "Q2",
+			"servers": 1,
+			"minService": 4.0,
+			"maxService": 8.0,
+			"network": [
+				{
+					"target": "Q2",
+					"probability": 0.7
+				}
+			]
+		}
+	],
+	"randomNumbers": [
+		0.2176,
+		0.0103,
+		0.1109,
+		0.3456,
+		0.9910,
+		0.2323,
+		0.9211,
+		0.0322,
+		0.1211,
+		0.5131,
+		0.7208,
+		0.9172,
+		0.9922,
+		0.8324,
+		0.5011,
+		0.2931
+	]
+}
